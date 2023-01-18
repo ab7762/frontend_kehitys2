@@ -1,0 +1,15 @@
+{
+  "name": "websocketserver",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server"
+  },
+  "keywords": [
+    "server"
+  ],
+  "author": "TuiTo",
+  "contributors": [],
+  "dependencies": {
+    "ws": "^7.2.1"
+  }
+}
