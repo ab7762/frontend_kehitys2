@@ -1,6 +1,7 @@
 # RockKalenteri
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+Kalenteri demoaa maksullista joulukalenteria, jossa on mahdollisuus palkintoihin. Valetietokannassa on yksi käyttäjä, jonka tiedoilla sovellukseen kirjaudutaan sisään
+sekä ostetaan kalentereita. Kalenteri on rock-teemalla vuodelle 2023. Sovelluksen kehitystyökaluna toimi Angular 15. 
 
 ## Development server
 
