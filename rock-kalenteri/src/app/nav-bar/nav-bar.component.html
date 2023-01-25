@@ -1,0 +1,87 @@
+<!--MDB 5 navbar. Navbarin kautta siirrytään kirjautumaan sisään, kirjaudutaan ulos sekä ostetaan kalenteri.-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="leftAligned.toggle()"
+      aria-controls="navbarLeftAlignExample"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div
+      class="collapse navbar-collapse"
+      id="navbarLeftAlignExample"
+      mdbCollapse
+      #leftAligned="mdbCollapse"
+    >
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">Kalenterit.com</a>
+        </li>
+        <li [hidden]="this.authservice.isLogged === false" class="nav-item">
+          <button
+            [disabled]="this.calendarservice.kalenteri === true"
+            id="osta"
+            (click)="ostaKalenteri()"
+            class="nav-link"
+          >
+            Osta kalenteri (2€)
+          </button>
+        </li>
+        <li [hidden]="this.authservice.isLogged === false" class="nav-item">
+          <a class="nav-link" tabindex="-1"
+            >Saldo: {{ this.calendarservice.account }} €</a
+          >
+        </li>
+        <li
+          *ngIf="
+            this.calendarservice.account < 2 &&
+            this.authservice.isLogged === true
+          "
+          class="nav-item"
+        >
+          <a id="talleta" class="nav-link">Talleta rahaa, jos haluat pelata.</a>
+        </li>
+      </ul>
+      <p
+        *ngIf="this.authservice.isLogged === false"
+        class="navbar-nav ms-auto mb-2 mb-lg-0"
+      >
+        <li class="nav-item">
+          <button
+            [routerLink]="'login'"
+            type="button"
+            class="btn btn-success btn-rounded"
+          >
+            Kirjaudu sisään
+          </button>
+        </li>
+      </p>
+      <p
+        *ngIf="this.authservice.isLogged === true"
+        class="navbar-nav ms-auto mb-2 mb-lg-0"
+      >
+        <li class="nav-item">
+          <button
+            (click)="logOut()"
+            type="button"
+            class="btn btn-dark btn-rounded"
+          >
+            Kirjaudu ulos
+          </button>
+        </li>
+      </p>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>

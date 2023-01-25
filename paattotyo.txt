@@ -1,0 +1,13 @@
+Mikko Kivelä / AB7762
+
+Mietteitä päättötyöstä:
+
+Angularin piirteet alkoivat hahmottua entistä paremmin päättötyötä tehdesssä. Itse päädyin käyttämään paljon serviceä,
+jolloin samoja tietoja on helppo käyttää eri osista sovellusta. Myös tiedon haku observablena alkaa hahmottua paremmin.
+Otin myös vähän haltuun Angularin animaatioita ja sain käsitystä, mitä mahdollisuuksia siellä on käytettävissä.
+
+Käytin myös ensimmäistä kertaa scss-tyylejä. MDB-kirjastot tuli käytön myötä tutuksi ja siellä on todella paljon mahdollisuuksia
+käytettäväksi. Olisin käyttänyt enemmänkin MDB-kirjaston työkaluja, mutta monet olisivat vaatineet kuukausitilauksen käyttöönottoa
+varten. Otin kalenterin pohjaksi muistipelin pelilautaa, mutta toiminnallisuudet koodasin itse.
+
+

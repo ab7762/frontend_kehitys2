@@ -1,0 +1,126 @@
+<!--Bootstrap 5 fixed container.-->
+<div class="sivu">
+  <div class="container-lg mt-5">
+    <h1 class="p-3">
+      R<span class="red">o</span>ck-kal<span class="red">e</span>nt<span
+        class="red"
+        >e</span
+      >ri 2023
+    </h1>
+    <h3 @fadeIn *ngIf="this.calendarservice.kalenteri === true">
+      Peli käynnissä
+    </h3>
+    <div class="board mt-5 pt-4 pb-4">
+      <app-hatch
+        @fadeIn
+        *ngFor="let val of calendarservice.values; let i = index"
+        [index]="i"
+        [value]="val"
+        (click)="pressButton(i)"
+      >
+      </app-hatch>
+    </div>
+  </div>
+  <button
+    *ngIf="calendarservice.opens === 24"
+    type="button"
+    class="btn btn-primary mt-2"
+    data-bs-toggle="modal"
+    data-bs-target="#myModal"
+  >
+    Tarkista voitto
+  </button>
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Kiitos kun pelasit</h4>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+
+        <!-- Modal body -->
+        <div *ngIf="calendarservice.voitto < 1" class="modal-body">
+          Et voittanut tällä kertaa. Onnea uusiin yrityksiin!
+        </div>
+        <div *ngIf="calendarservice.voitto > 0" class="modal-body">
+          Voitit {{ calendarservice.voitto }} €. Paljon onnea!!
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            Sulje
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MD Bootstrap table. Mahdollisissa voittolinjoissa ehdollinen tyyli.-->
+  <table class="table table-hover">
+    <tbody>
+      <tr class="king">
+        <th
+          [ngClass]="{
+            voittolinja: this.calendarservice.king.length >= 10
+          }"
+        >
+          <img
+            src="../../assets/images/elvis.png"
+            alt="king"
+            height="100s"
+            width="55"
+          />
+          X
+          <span class="count">10</span>
+        </th>
+
+        <td class="prize">10.000 €</td>
+      </tr>
+      <tr
+        [ngClass]="{
+          voittolinja: this.calendarservice.lennon.length >= 8
+        }"
+      >
+        <th>
+          <img
+            src="../../assets/images/lennon.jpg"
+            alt="lennon"
+            height="100s"
+          />
+          X
+          <span class="count">8</span>
+        </th>
+
+        <td class="prize">1000 €</td>
+      </tr>
+      <tr
+        [ngClass]="{
+          voittolinja: this.calendarservice.kurt.length >= 7
+        }"
+      >
+        <th>
+          <img
+            src="../../assets/images/kurt.jpg"
+            alt="kurt"
+            height="100s"
+            width="75"
+          />
+          X
+          <span class="count">7</span>
+        </th>
+
+        <td class="prize">2 €</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!--Footer komponentti. MDB 5 tehty footer-komponentti.-->
+  <app-footer></app-footer>
+</div>

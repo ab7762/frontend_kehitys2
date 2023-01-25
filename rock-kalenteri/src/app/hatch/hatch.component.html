@@ -1,0 +1,21 @@
+<!--Luukun tyyli. Ehdollinen tyyli tulee status-ominaisuuden perusteella. Luukut piilotetaan, jos
+peli ei ole käynnissä ja luukkuja ei ole avattu. Value eli päivän numero arvona.-->
+<button
+  [ngClass]="{
+    kurt: value.status === 'kurt'
+  }"
+  [ngClass]="{
+    lennon: value.status === 'lennon'
+  }"
+  [ngClass]="{
+    logo: value.status === 'logo'
+  }"
+  [ngClass]="{
+    king: value.status === 'king'
+  }"
+  [hidden]="
+    this.calendarservice.kalenteri === false && this.calendarservice.opens === 0
+  "
+>
+  {{ value.value }}
+</button>
